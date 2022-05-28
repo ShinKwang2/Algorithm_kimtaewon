@@ -1,4 +1,4 @@
-package ch06.two_bubble_sort.review;
+package ch06.one_selection_sort.review;
 
 import java.util.Scanner;
 
@@ -6,14 +6,17 @@ public class Main {
 
     public int[] solution(int n, int[] arr) {
 
-        for (int i = 0; i < n - 1; n++) {
-            for (int j = 0; j < n - i - 1; j++) {
-                if (arr[j] > arr[j + 1]) {
-                    int tmp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = tmp;
-                }
+        for (int i = 0; i < n - 1; i++) {
+            int idx = i;
+
+            for(int j = i + 1; j < n; j++) {
+                if (arr[j] < arr[idx])
+                    idx = j;
             }
+
+            int tmp = arr[i];
+            arr[i] = arr[idx];
+            arr[idx] = tmp;
         }
 
         return arr;
@@ -23,7 +26,6 @@ public class Main {
         Main T = new Main();
         Scanner kb = new Scanner(System.in);
         int n = kb.nextInt();
-
         int[] arr = new int[n];
         for (int i = 0; i < n; i++) {
             arr[i] = kb.nextInt();
@@ -32,6 +34,5 @@ public class Main {
         for (int x : T.solution(n, arr)) {
             System.out.print(x + " ");
         }
-
     }
 }
