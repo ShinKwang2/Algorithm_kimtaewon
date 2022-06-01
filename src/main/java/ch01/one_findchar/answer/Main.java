@@ -1,5 +1,6 @@
 package ch01.one_findchar.answer;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -7,6 +8,9 @@ public class Main {
         int result = 0;
         str = str.toUpperCase();
         t = Character.toUpperCase(t);
+
+        int[] arr = new int[3];
+
 
         /* for문
         for (int i = 0; i < str.length(); i++) {
